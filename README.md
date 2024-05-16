@@ -42,12 +42,33 @@ filetree
 .
 ├── Install_latex.sh
 ├── LICENSE
-├── Programming
+├── Programming Assignment
+│   ├── Assignment #1
+│   │   ├── Makefile
+│   │   ├── Programming Assignment #1.pdf
+│   │   ├── report.pdf
+│   │   ├── t2c.c
+│   │   ├── t2c.h
+│   │   ├── test1.t
+│   │   ├── test2.t
+│   │   ├── test3.t
+│   │   ├── test4.t
+│   │   ├── test5.t
+│   │   ├── test7.t
+│   │   ├── test.t
+│   │   ├── t_lex.l
+│   │   └── t_parse.y
+│   └── Assignment #2
 ├── Quiz
-│   └── Quiz #1
-│       └── HW.pdf
+│   ├── Quiz #1.pdf
+│   ├── Quiz #2.pdf
+│   ├── Quiz #3.pdf
+│   ├── Quiz #4.pdf
+│   ├── Quiz #5.pdf
+│   ├── Quiz #6.pdf
+│   ├── Quiz #7.pdf
+│   └── Quiz #8.pdf
 └── README.md
-
 ```
 
 ### Deployment
