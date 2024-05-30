@@ -49,4 +49,12 @@ sister(X, Y) :- sibling(X, Y), female(X), female(Y).
 cousin(X, Y) :- parent(P1, X), parent(P2, Y), sibling(P1, P2).
 
 % Query example
-% ?- cousin(liz, rebecca).
+% Check if Liz and Rebecca are cousins
+% ?- relationship(liz, rebecca, cousins).
+% Check if Liz and Kate are siblings
+% ?- relationship(liz, kate, siblings).
+% Check if Dennis and Edward are brothers
+% ?- relationship(dennis, edward, brothers).
+% Check if Helen and Iris are sisters
+% ?- relationship(helen, iris, sisters).
+% Check if Dennis is a parent of Edward

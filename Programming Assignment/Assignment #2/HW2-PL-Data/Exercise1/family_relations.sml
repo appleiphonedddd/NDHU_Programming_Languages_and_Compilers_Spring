@@ -43,6 +43,10 @@ fun siblings p =
 
 fun areSiblings x y = List.exists (fn s => s = y) (siblings x);
 
+fun areBrothers x y = areSiblings x y andalso isMale x andalso isMale y;
+
+fun areSisters x y = areSiblings x y andalso isFemale x andalso isFemale y;
+
 fun areCousins x y = 
     let
         val xSibs = siblings x
@@ -51,4 +55,18 @@ fun areCousins x y =
         List.exists (fn s => List.exists (fn p => areSiblings s p) yParents) xSibs
     end;
 
-val _ = print("Are Liz and Rebecca cousins? " ^ Bool.toString(areCousins Liz Rebecca) ^ "\n");
+fun isParent x y = List.exists (fn Parent(p, c) => p = x andalso c = y) parentChild;
+
+fun relationship x y = 
+    if isParent(x, y) then "parent"
+    else if areSiblings(x, y) then "siblings"
+    else if areBrothers(x, y) then "brothers"
+    else if areSisters(x, y) then "sisters"
+    else if areCousins(x, y) then "cousins"
+    else "no relation";
+
+val _ = print("Relationship between Liz and Rebecca: " ^ relationship Liz Rebecca ^ "\n");
+val _ = print("Relationship between Liz and Kate: " ^ relationship Liz Kate ^ "\n");
+val _ = print("Relationship between Dennis and Edward: " ^ relationship Dennis Edward ^ "\n");
+val _ = print("Relationship between Helen and Iris: " ^ relationship Helen Iris ^ "\n");
+val _ = print("Relationship between Dennis and Edward: " ^ relationship Dennis Edward ^ "\n");

@@ -1,0 +1,89 @@
+       IDENTIFICATION DIVISION.
+       PROGRAM-ID. STUDENT-FEES-COMPUTATION.
+
+       DATA DIVISION.
+       FILE SECTION.
+
+       FD  STUDENT-MAIN-FILE.
+       01  STUDENT-MAIN-RECORD.
+           05 STUDENT-ID          PIC 9(10).
+           05 STUDENT-NAME        PIC X(20).
+           05 PAYMENT-TYPE        PIC X(1).
+
+       FD  FEES-FILE.
+       01  FEES-RECORD.
+           05 PAYMENT-TYPE-FEES   PIC X(1).
+           05 AMOUNT-FEES         PIC 9(7)V99.
+
+       FD  STUDENT-PAYMENT-FILE.
+       01  STUDENT-PAYMENT-RECORD.
+           05 STUDENT-ID-PAYMENT  PIC 9(10).
+           05 AMOUNT-PAYMENT      PIC 9(7)V99.
+
+       WORKING-STORAGE SECTION.
+       01  WS-TOTAL-AMOUNT-RECEIVED      PIC 9(10)V99 VALUE 0.
+       01  WS-AMOUNT-SHORT               PIC 9(7)V99 VALUE 0.
+       01  WS-REQUIRED-AMOUNT            PIC 9(7)V99.
+       01  WS-STUDENT-FLAG               PIC X VALUE 'N'.
+       01  WS-STUDENT-NAME               PIC X(20).
+
+       PROCEDURE DIVISION.
+       MAIN-PROCEDURE.
+           OPEN INPUT STUDENT-MAIN-FILE
+           OPEN INPUT FEES-FILE
+           OPEN INPUT STUDENT-PAYMENT-FILE
+
+           PERFORM UNTIL 1 = 2
+               READ STUDENT-PAYMENT-FILE INTO STUDENT-PAYMENT-RECORD
+               AT END
+                   EXIT PERFORM
+               NOT AT END
+                   ADD AMOUNT-PAYMENT TO WS-TOTAL-AMOUNT-RECEIVED
+           END-PERFORM
+
+           PERFORM UNTIL 1 = 2
+               READ STUDENT-MAIN-FILE INTO STUDENT-MAIN-RECORD
+               AT END
+                   EXIT PERFORM
+               NOT AT END
+                   PERFORM CHECK-FEES
+           END-PERFORM
+
+           CLOSE STUDENT-MAIN-FILE
+           CLOSE FEES-FILE
+           CLOSE STUDENT-PAYMENT-FILE
+
+           DISPLAY "TOTAL AMOUNT RECEIVED: " WS-TOTAL-AMOUNT-RECEIVED
+           STOP RUN.
+
+       CHECK-FEES.
+           MOVE 'N' TO WS-STUDENT-FLAG
+           PERFORM UNTIL WS-STUDENT-FLAG = 'Y'
+               READ FEES-FILE INTO FEES-RECORD
+               AT END
+                   MOVE 'Y' TO WS-STUDENT-FLAG
+               NOT AT END
+                   IF PAYMENT-TYPE = PAYMENT-TYPE-FEES
+                       MOVE AMOUNT-FEES TO WS-REQUIRED-AMOUNT
+                       MOVE 'Y' TO WS-STUDENT-FLAG
+                   END-IF
+           END-PERFORM
+
+           PERFORM CHECK-PAYMENT
+
+       CHECK-PAYMENT.
+           MOVE 'N' TO WS-STUDENT-FLAG
+           PERFORM UNTIL WS-STUDENT-FLAG = 'Y'
+               READ STUDENT-PAYMENT-FILE INTO STUDENT-PAYMENT-RECORD
+               AT END
+                   MOVE 'Y' TO WS-STUDENT-FLAG
+                   DISPLAY "STUDENT " STUDENT-NAME " DID NOT PAY THE REQUIRED FEES. AMOUNT SHORT: " WS-AMOUNT-SHORT
+               NOT AT END
+                   IF STUDENT-ID = STUDENT-ID-PAYMENT
+                       IF AMOUNT-PAYMENT < WS-REQUIRED-AMOUNT
+                           SUBTRACT AMOUNT-PAYMENT FROM WS-REQUIRED-AMOUNT GIVING WS-AMOUNT-SHORT
+                           DISPLAY "STUDENT " STUDENT-NAME " DID NOT PAY THE REQUIRED FEES. AMOUNT SHORT: " WS-AMOUNT-SHORT
+                       END-IF
+                       MOVE 'Y' TO WS-STUDENT-FLAG
+                   END-IF
+           END-PERFORM.
