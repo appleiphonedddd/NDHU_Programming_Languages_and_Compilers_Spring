@@ -43,31 +43,50 @@ filetree
 ├── Install_latex.sh
 ├── LICENSE
 ├── Programming Assignment
-│   ├── Assignment #1
-│   │   ├── Makefile
-│   │   ├── Programming Assignment #1.pdf
-│   │   ├── report.pdf
-│   │   ├── t2c.c
-│   │   ├── t2c.h
-│   │   ├── test1.t
-│   │   ├── test2.t
-│   │   ├── test3.t
-│   │   ├── test4.t
-│   │   ├── test5.t
-│   │   ├── test7.t
-│   │   ├── test.t
-│   │   ├── t_lex.l
-│   │   └── t_parse.y
-│   └── Assignment #2
+│   ├── Assignment #1
+│   │   ├── Makefile
+│   │   ├── Programming Assignment #1.pdf
+│   │   ├── report.pdf
+│   │   ├── t2c.c
+│   │   ├── t2c.h
+│   │   ├── test1.t
+│   │   ├── test2.t
+│   │   ├── test3.t
+│   │   ├── test4.t
+│   │   ├── test5.t
+│   │   ├── test7.t
+│   │   ├── test.t
+│   │   ├── t_lex.l
+│   │   └── t_parse.y
+│   └── Assignment #2
+│       ├── HW2-PL-Data
+│       │   ├── Exercise1
+│       │   │   ├── FamilyRelations.class
+│       │   │   ├── FamilyRelations.java
+│       │   │   ├── family_relations.pl
+│       │   │   ├── family_relations.sml
+│       │   │   └── Person.class
+│       │   ├── Exercise2
+│       │   │   ├── HW2-Fees.csv
+│       │   │   ├── HW2-Student-Main.csv
+│       │   │   ├── HW2-Student-Payment.csv
+│       │   │   ├── StudentPayment.cbl
+│       │   │   ├── StudentPayment.R
+│       │   │   ├── Students_not_paid.cbl
+│       │   │   └── Students_not_paid.R
+│       │   └── Programming Assignment #2.pdf
+│       └── t2cHW2.zip
 ├── Quiz
-│   ├── Quiz #1.pdf
-│   ├── Quiz #2.pdf
-│   ├── Quiz #3.pdf
-│   ├── Quiz #4.pdf
-│   ├── Quiz #5.pdf
-│   ├── Quiz #6.pdf
-│   ├── Quiz #7.pdf
-│   └── Quiz #8.pdf
+│   ├── Final.pdf
+│   ├── Quiz #1.pdf
+│   ├── Quiz #2.pdf
+│   ├── Quiz #3.pdf
+│   ├── Quiz #4.pdf
+│   ├── Quiz #5.pdf
+│   ├── Quiz #6.pdf
+│   ├── Quiz #7.pdf
+│   ├── Quiz #8.pdf
+│   └── Quiz #9.pdf
 └── README.md
 ```
 
