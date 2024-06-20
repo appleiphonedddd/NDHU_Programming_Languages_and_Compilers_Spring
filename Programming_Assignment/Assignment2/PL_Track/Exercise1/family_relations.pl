@@ -19,8 +19,11 @@ female(pattie).
 female(rebecca).
 
 married(bob, helen).
+married(helen, bob).
 married(dennis, pattie).
+married(pattie, dennis).
 married(gigi, martin).
+married(martin, gigi).
 
 parent(andy, bob).
 parent(bob, cecil).
@@ -40,21 +43,23 @@ parent(quinn, rebecca).
 
 parent(X, Z) :- married(X, Y), parent(Y, Z).
 
-sibling(X, Y) :- parent(P, X), parent(P, Y), X \= Y.
+sibling(Y, Z) :- parent(X, Y), parent(X, Z).
 
 brother(X, Y) :- sibling(X, Y), male(X), male(Y).
 
 sister(X, Y) :- sibling(X, Y), female(X), female(Y).
 
-cousin(X, Y) :- parent(P1, X), parent(P2, Y), sibling(P1, P2).
+cousin(Y, Z) :- parent(W, Y), parent(X, Z), sibling(W, X).
 
 % Query example
 % Check if Liz and Rebecca are cousins
-% ?- relationship(liz, rebecca, cousins).
+% ?- cousin(liz, rebecca).
 % Check if Liz and Kate are siblings
-% ?- relationship(liz, kate, siblings).
+% ?- sibling(liz, kate).
 % Check if Dennis and Edward are brothers
-% ?- relationship(dennis, edward, brothers).
+% ?- brother(dennis, edward).
 % Check if Helen and Iris are sisters
-% ?- relationship(helen, iris, sisters).
+% ?- sister(helen, iris).
 % Check if Dennis is a parent of Edward
+% ?- parent(dennis, edward).
+

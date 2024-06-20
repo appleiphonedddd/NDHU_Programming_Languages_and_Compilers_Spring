@@ -149,15 +149,16 @@ public class FamilyRelations {
 
     public static void main(String[] args) {
         init(); // Initialize the family data
-        System.out.println("Are Liz and Rebecca cousins? " + areCousins("Liz", "Rebecca"));
+        //System.out.println("Are Liz and Rebecca cousins? " + areCousins("Liz", "Rebecca"));
                                                                                            
-        System.out.println("Are Liz and Kate siblings? " + areSiblings("Liz", "Kate"));
+        //System.out.println("Are Liz and Kate siblings? " + areSiblings("Liz", "Kate"));
                                                                                         
-        System.out.println("Are Dennis and Edward brothers? " + areBrothers("Dennis", "Edward"));
+        //System.out.println("Are Dennis and Edward brothers? " + areBrothers("Dennis", "Edward"));
                                                                                                   
-        System.out.println("Are Helen and Iris sisters? " + areSisters("Helen", "Iris"));
+        //System.out.println("Are Helen and Iris sisters? " + areSisters("Helen", "Iris"));
                                                                                           
-        System.out.println("Is Dennis a parent of Edward? " + isParent("Dennis", "Edward"));
+        //System.out.println("Is Dennis a parent of Edward? " + isParent("Dennis", "Edward"));
+        System.out.println(areCousins("Rebecca", "Felix"));
                                                                                              
     }
 }
