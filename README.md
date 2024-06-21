@@ -1,6 +1,6 @@
 # NDHU_Programming_Languages_and_Compilers_Spring
 
-`NDHU_Programming_Languages_and_Compilers_Spring` project belongs to the Digital Learning Technology at National Dong Hwa University. The purpose of this project is to help you understand the structure of complier
+`NDHU_Programming_Languages_and_Compilers_Spring` project belongs to the Digital Learning Technology at National Dong Hwa University. The purpose of this project is to help you understand the structure of complier and programming language
 
 ## Contents
 
@@ -12,7 +12,6 @@
 - [Frameworks Used](#Frameworks-Used)
 - [Author](#Author)
 
-
 ### Getting Started
 
 ###### Requirements
@@ -21,18 +20,11 @@
 
 ###### **Installation**
 
-1. Clone the repo and enter repo folder
+1. Install Latex, flex and bison in Ubuntu
 
 ```sh
-git clone https://github.com/appleiphonedddd/NDHU_Programming_Languages_and_Compilers_Spring.git
-cd NDHU_Programming_Languages_and_Compilers_Spring
-```
-
-2. Install Latex package in Ubuntu
-
-```sh
-chmod +x install_latex.sh
-sudo ./install_latex.sh
+chmod +x Building.sh
+sudo ./Building.sh
 ```
 
 ### Directory Structure
@@ -40,10 +32,10 @@ sudo ./install_latex.sh
 ```
 filetree 
 .
-├── Install_latex.sh
+├── Building.sh
 ├── LICENSE
-├── Programming Assignment
-│   ├── Assignment #1
+├── Programming_Assignment
+│   ├── Assignment1
 │   │   ├── Makefile
 │   │   ├── Programming Assignment #1.pdf
 │   │   ├── report.pdf
@@ -58,21 +50,25 @@ filetree
 │   │   ├── test.t
 │   │   ├── t_lex.l
 │   │   └── t_parse.y
-│   └── Assignment #2
-│       ├── HW2-PL-Data
+│   └── Assignment2
+│       ├── Compiler_Track
+│       │   ├── Makefile
+│       │   ├── t2c.c
+│       │   ├── t2c.h
+│       │   ├── t2c_tree.c
+│       │   ├── t2c_tree.h
+│       │   ├── test1.t
+│       │   ├── test2.t
+│       │   ├── test3.t
+│       │   ├── test.t
+│       │   ├── t_lex.l
+│       │   └── t_parse.y
+│       ├── PL_Track
 │       │   ├── Exercise1
-│       │   │   ├── FamilyRelations.class
 │       │   │   ├── FamilyRelations.java
-│       │   │   ├── family_relations.pl
-│       │   │   ├── family_relations.sml
-│       │   │   └── Person.class
+│       │   │   └── family_relations.pl
 │       │   ├── Exercise2
-│       │   │   ├── HW2-Fees.csv
-│       │   │   ├── HW2-Student-Main.csv
-│       │   │   ├── HW2-Student-Payment.csv
-│       │   │   ├── StudentPayment.cbl
 │       │   │   ├── StudentPayment.R
-│       │   │   ├── Students_not_paid.cbl
 │       │   │   └── Students_not_paid.R
 │       │   └── Programming Assignment #2.pdf
 │       └── t2cHW2.zip
@@ -92,15 +88,34 @@ filetree
 
 ### Deployment
 
-1. Execute `Mall_Customers.ipynb` on vscode or Jupyter
+1. Compile it by Makefile
 
+```sh
+make
+```
+
+2. Build parse and run
+
+```sh
+./parse test.t
+```
+
+2. clear compiled object files
+
+```sh
+make clean
+```
 
 ### Frameworks Used
 
 - [Latex](https://www.latex-project.org/)
 
+- [Bison](https://www.gnu.org/software/bison/)
+
+- [Flex](https://manpages.ubuntu.com/manpages/focal/man1/flex.1.html)
+
 ### Author
 
-zozo5120@outlook.com
+611221201@gms.ndhu.edu.tw
 
 Name:Egor Lee
